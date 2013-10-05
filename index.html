@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ToDo_01</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta name="author" content="The Chopping Block, Inc." />
+	<meta name="geo.country" content="US" />
+	<meta name="dc.language" content="en" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	
+
+	
+	<style type="text/css" media="screen">		
+		/*local styles if any (quick tests and local only overrides)*/
+		
+		.completed{
+			text-decoration: line-through;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="wrap" >
+		Project: ToDo_01
+		
+		<ol>
+			<li>Append tasks entered in the field to the end of the list</li>
+			<li>Clicking on a task should toggle the completed class</li>
+			<li>After clicking Add Task, the input field should be emptied</li>
+		</ol>
+		
+		<div><input type="text" value="" id="new_task"><button id="add_task">Add Task</button></div>
+		
+		<ul id="tasks">
+			<li class="completed">One Task</li>
+			<li>Two Task</li>
+		</ul>
+		
+	</div>
+	<script type="text/javascript" charset="utf-8">
+	
+
+        
+ var els = document.querySelectorAll("#tasks");
+
+ var addTask = document.querySelector("#add_task"); 
+ var newTask = document.querySelector("#new_task");
+
+    // 1. Javascript should setup the event listener (onclicks) for the tasks that already exist			
+       
+ for (var i = 0; i < els.length; i++){             
+            
+     els[i].onclick = function(event){
+			
+            	event.target;
+			
+			var clickedElement = event.target;
+			clickedElement.classList.toggle("completed");
+	}
+};	
+		// 2. Something weird is going to happen when you update the tasks UL, all of the onclicks are going to erased
+	for (var i = 0; i < newTask.length; i++){	
+			
+			addTask.onclick = function(event){
+				event.target;
+
+			var newTask = event.target;
+		var tasks = document.querySelectorAll("tasks");
+	
+tasks.innerHTML = tasks.innerHTML + "<li>" + " " + "<li>" + newTask;
+}
+				//    Every time you add something to the list, you need to redefine the onclicks for all of them
+	};
+		
+					//add tasks
+	</script>
+</body>
+</html>
