@@ -47,7 +47,7 @@
         
  var els = document.querySelectorAll("#tasks");
 
- var addTask = document.querySelector("#add_task"); 
+ var button = document.querySelector("#add_task"); 
  var newTask = document.querySelector("#new_task");
 
     // 1. Javascript should setup the event listener (onclicks) for the tasks that already exist			
@@ -62,19 +62,31 @@
 			clickedElement.classList.toggle("completed");
 	}
 };	
-		// 2. Something weird is going to happen when you update the tasks UL, all of the onclicks are going to erased
-	for (var i = 0; i < newTask.length; i++){	
-			
-			addTask.onclick = function(event){
-				event.target;
+		 	
 
-			var newTask = event.target;
-		var tasks = document.querySelectorAll("tasks");
-	
-tasks.innerHTML = tasks.innerHTML + "<li>" + " " + "<li>" + newTask;
-}
+		  // 2. Something weird is going to happen when you update the tasks UL, all of the onclicks are going to erased
+			button.onclick = function(){	
+
+				var task = document.querySelector("#new_task").value;
+		  var tasks = document.querySelectorAll("tasks");
+				
+				//task = event.target;
+				
+			//var tasks = event.target;
+			//task = task.value;
+			//var task = document.querySelector("#new_task").value;
+		 var tasks = document.querySelectorAll("tasks");
+
+		 document.querySelector("#tasks").innerHTML =  
+			 
+	tasks.innerHTML = "<li>" + " " + "<li>" + task;
+
+		//document.querySelector("#new_task").innerHTML = " "; 
+
+	//task = " ";
+ }
 				//    Every time you add something to the list, you need to redefine the onclicks for all of them
-	};
+	
 		
 					//add tasks
 	</script>
